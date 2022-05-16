@@ -13971,7 +13971,7 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1>Animal Bite Study</h1>
+<h1><center>Animal Bite Study</center></h1>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -13989,10 +13989,10 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import the libraries required for the analysis</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import the libraries required for analysis</span>
 <span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">reqs</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
@@ -15177,7 +15177,8 @@ dtype: int64</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We take our top 25 dog breeds and plot their bite frequency over year, dropping any rows without year data, as they are not relevant to our analysis. As seen in the first graph below, plotting the other years besides the ones after 2017 are a waste because they barely contain any data, so we cut those out, giving us the second graph with specified years. Now we have graphs where every year has a good amount of data. However, 2022 is not over and the current data is heavily skewed towards the earlier months. Thus, data for 2022 will also be removed so it does not skew the month data.</p>
+<p>We take our top 25 dog breeds and plot their bite frequency over year, dropping any rows without year data, as they are not relevant to our analysis. As seen in the first graph below, plotting the other years besides the ones after 2017 are a waste because they barely contain any data, so we cut those out, giving us the second graph with specified years. One of the reasons for missing data before 2017 is the lacking of keeping records.</p>
+<p>Now we have graphs where every year has a good amount of data. However, 2022 is not over and the current data is heavily skewed towards the earlier months. Thus, data for 2022 will also be removed so it does not skew the month data. In conclusion, we only consider years 2017-2021.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15627,8 +15628,8 @@ dtype: int64</pre>
 <p>Now that we have our data all cleaned up and made some observations, time to see if we can find any relationships. To do that we first do a Z test to see if any particular breed, gender, month, or year makes bites more likely.
 Our null hypothesis will be that there is no relation between any factor and being bit.</p>
 <p>To test this hypothesis we must first determine to what level we are willing to believe the data is not skewed, the Z value.</p>
-<p>For this project we will be using 2 sided Z test where z=1.96 for all tests. This Z value in a 2 sided test means there must only be 5% or less chance of there being no relation for us to actually conclude there is a relation.</p>
-<p>We are checking if any variable is too high or too low (binomal) so we use
+<p>For this project we will be using 2 sided Z test where z=1.96 for all tests. This Z value in a 2 sided test means there must only be 5% or less chance of there being no relation for us to actually conclude there is a relation. Additionally, we found the diagram in this <a href="https://bloomingtontutors.com/blog/when-to-use-the-z-test-versus-t-test">resource</a> to be helpful when deciding which type of test should be conducted.</p>
+<p>Further, we are doing 2 sided Z test instead of 1 since we want to check if data points are both either too high or too low. In 2 sided Z test, we are checking if any variable is too high or too low (binomal) so we use
  Z=(x-n*p*q)/(sqrt(n*p*q), where x=observed, n=total observations, p=probability of it happening, and q=probability of it not happening</p>
 <p>We want to solve for x to know what values the data must be in for us to not reject our hypothesis, as shown in the code below:</p>
 
@@ -15907,10 +15908,13 @@ False
 <span class="n">months</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span>
 
 <span class="n">months</span><span class="o">=</span><span class="n">months</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># create a linear regression fit </span>
 <span class="n">month_lin</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">months</span><span class="p">,</span> <span class="n">month_nums</span><span class="p">)</span>
 
+<span class="c1"># graph the bar plot</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">sub_data</span> <span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
 
+<span class="c1"># plot the regression line</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span><span class="n">month_lin</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">months</span><span class="o">+</span><span class="n">month_lin</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Bite Frequency&#39;</span><span class="p">)</span>
@@ -15950,7 +15954,7 @@ False
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This is because years wrap around itself so after December its January thus it doesn't make sense for it to be a linear increasing or decreasing line. For a better line fitting we'll look to sin regression.</p>
+<p>This is because years wrap around itself so after December its January thus it doesn't make sense for it to be a linear increasing or decreasing line. For a better line fitting, we'll look to sin regression.</p>
 
 </div>
 </div>
@@ -15961,7 +15965,7 @@ False
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>As the linear regression model in the previous graph was not enough to determine a clear pattern, we turn to sin regression models. First, we calculate the parameters of the equation, using a prediction for p (π+2, x shift), 2π over the number of months in a year for w (period), max frequency minus min frequency for month over 2 for A (amplitude), and max frequency plus min frequency for month over 2 for B (y shift).</p>
+<p>As the linear regression model in the previous graph was not enough to determine a clear pattern, we turn to sin regression models. Sin regression is a better fit here since a year raps around after, Dec it's Jan, so it makes sense for a bit to have a cycle that repeats itself after a year. First, we calculate the parameters of the equation, using a prediction for p (π+2, x shift), 2π over the number of months in a year for w (period), max frequency minus min frequency for month over 2 for A (amplitude), and max frequency plus min frequency for month over 2 for B (y shift).</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15971,12 +15975,15 @@ False
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sin fitting</span>
+
+<span class="c1"># Initial variables along with a p guess</span>
 <span class="n">A</span><span class="o">=</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">month_nums</span><span class="p">)</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">month_nums</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">B</span><span class="o">=</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">month_nums</span><span class="p">)</span><span class="o">+</span><span class="nb">min</span><span class="p">(</span><span class="n">month_nums</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">12</span>
 <span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="mi">2</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">sub_data</span> <span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
 
+<span class="c1"># plot the sin curve with the p value</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span><span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">months</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Bite Frequency&#39;</span><span class="p">)</span>
@@ -16016,7 +16023,7 @@ False
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This result is only a guess, to find a more optimal sin regression we must change p (x shift). To do this, we start with an initial guess of π since it can range from 0 to 2π. We then increase or decrease it by half each time depending on which way would decrease the error more, this is repeated 100 times. The resulting sin regression line suggest a peak bite frequency at around July and August, compared to the original sin regression graph's predicted peak at June.</p>
+<p>This result is only a guess, to find a more optimal sin regression we must change p (x shift). To do this, we start with an initial guess of π since it can range from 0 to 2π. We then increase or decrease it by half each time depending on which way would decrease the error more, this is repeated 100 times. The resulting sin regression line suggest a peak bite frequency at around July and August, compared to the original sin regression graph's predicted peak at June. According to the weather data <a href="https://weatherspark.com/y/15227/Average-Weather-in-Louisville-Kentucky-United-States-Year-Round#:~:text=The%20hot%20season%20lasts%20for,low%20of%2070%C2%B0F.">analysis</a> in Louisville, June is the month with most wet days. The weather becomes more pleasant for outdoor activity starting from July. Thus, this explains the peak in July and August as more people are likely to be outside and get bit.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16030,21 +16037,25 @@ False
 <span class="n">B</span><span class="o">=</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">month_nums</span><span class="p">)</span><span class="o">+</span><span class="nb">min</span><span class="p">(</span><span class="n">month_nums</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">12</span>
 <span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="c1"># month indexing</span>
 <span class="n">months</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span>
 <span class="n">adjust</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+<span class="c1"># loop to optimize p</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="c1"># get error in both direction</span>
     <span class="n">temper1</span><span class="o">=</span><span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">months</span><span class="o">+</span><span class="n">p</span><span class="o">+</span><span class="n">adjust</span><span class="p">)</span><span class="o">+</span><span class="n">B</span>
     <span class="n">std1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">temper1</span><span class="p">)</span>
     <span class="n">temper2</span><span class="o">=</span><span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">months</span><span class="o">+</span><span class="n">p</span><span class="o">-</span><span class="n">adjust</span><span class="p">)</span><span class="o">+</span><span class="n">B</span>
     <span class="n">std2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">temper2</span><span class="p">)</span>
+    <span class="c1">#binary search to get search for p&#39;s optimal value</span>
     <span class="k">if</span> <span class="n">std2</span><span class="o">&lt;</span><span class="n">std1</span><span class="p">:</span>
         <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">-</span><span class="n">adjust</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">+</span><span class="n">adjust</span>
     <span class="n">adjust</span><span class="o">=</span><span class="n">adjust</span><span class="o">/</span><span class="mi">2</span>
 
+<span class="c1"># plot the curve</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">sub_data</span> <span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">months</span><span class="p">,</span><span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">months</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Bite Frequency&#39;</span><span class="p">)</span>
@@ -16091,7 +16102,7 @@ False
 <li>Dog bite incidents tend to be higher in frequency all the way from March to September (Early Spring to Early Fall), appearing to peak at around May, though predictions actually place the peak in late Summer.</li>
 <li>Male dog bites occur more frequently than female</li>
 </ul>
-<p>Overall, we can use this currently relevant data to determine the absolute worst time in Louisville, Kentucky to take a walk in the vicinity of a certain dog breed of a specific gender (any point from Spring to Fall around a male Pit Bull). Taking action based on these findings to the extent one is humanly capable <em>may</em> reduce the chances of being bitten (protection on body, avoiding densely populated areas, Pit Bulls, German Shepherds, and Labrador Retrievers).</p>
+<p>Overall, we can use this currently relevant data to determine the absolute worst time in Louisville, Kentucky to take a walk in the vicinity of a certain dog breed of a specific gender (any point from Spring to Fall around a male Pit Bull). Taking action based on these findings to the extent one is humanly capable <em>may</em> reduce the chances of being bitten (especially for children: wearing clothes covering body, avoiding densely populated areas during july and august, and beware of Pit Bulls, German Shepherds, and Labrador Retrievers). Lastly, while the study doesn't explicitly mention, many of these biting cases occur due to teasing or startling the dogs and triggering their aggression <a href="https://www.akc.org/expert-advice/training/why-do-dogs-bite/">ref</a>. Thus, animals should be respected and handled with care!</p>
 
 </div>
 </div>
