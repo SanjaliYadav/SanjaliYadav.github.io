@@ -1,466 +1,423 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Read Only by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - PhD Candidate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Source Serif Pro', serif;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.25rem; /* Correctly positioned in the parent's padding */
+            top: 0.25rem; 
+            bottom: -3rem; 
+            width: 2px;
+            background-color: #99f6e4; /* teal-200 */
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: calc(-1.25rem - 0.4375rem + 1px); /* Centered on the timeline bar */
+            top: 0.25rem;
+            height: 0.875rem; /* 14px */
+            width: 0.875rem; /* 14px */
+            background-color: white;
+            border: 2px solid #0d9488; /* teal-600 */
+            border-radius: 9999px;
+            z-index: 10;
+        }
+        .glass-panel {
+            @apply bg-white/60 backdrop-blur-xl rounded-3xl shadow-lg border border-white/20;
+        }
+        h1, h2, h3 {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 via-teal-50 to-cyan-100 text-slate-700">
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<h1 id="logo"><a href="#">Sanjali Yadav</a></h1>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">Education</a></li>
-						<li><a href="#two">Work Experience</a></li>
-						<li><a href="#three">Other Experiences</a></li>
-						<li><a href="#four">Accomplishments</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://www.linkedin.com/in/sanjali-yadav/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-						<li><a href="https://github.com/SanjaliYadav" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="sanjaliyadav17@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
+    <header id="page-header">
+        <!-- Full-width Nature Image -->
+         <div class="h-80 md:h-96 bg-cover bg-center" style="background-image: url('/Users/sanjaliyadav/workspace/SanjaliYadav.github.io/images/main.jpeg');"></div>
+        </div>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        <!-- Profile Info Section -->
+        <div class="bg-gradient-to-b from-teal-50/70 to-green-50/70 backdrop-blur-lg py-6">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <!-- Bio Text -->
+                    <div class="text-center md:text-left">
+                         <h1 class="text-4xl md:text-5xl text-slate-800">Sanjali Yadav</h1>
+                         <p class="mt-2 text-xl md:text-2xl text-teal-700 font-semibold">Ph.D. Student at University of Maryland, College Park</p>
+                    </div>
+                    <!-- Profile Image -->
+                    <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 mt-6 md:mt-0 md:ml-8">
+                         <img src="/Users/sanjaliyadav/workspace/SanjaliYadav.github.io/images/IMG_1347.jpg" 
+                              alt="A professional headshot of Your Name" 
+                              class="rounded-full object-cover w-full h-full shadow-2xl ring-4 ring-white/50">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Header & Menu -->
+    <div class="md:hidden">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-teal-50/80 backdrop-blur-lg shadow-md">
+            <div class="container mx-auto px-6 flex justify-between items-center h-16">
+                <h1 class="text-xl font-bold text-slate-800">Sanjali Yadav</h1>
+                <button id="mobile-menu-button">
+                    <i data-lucide="menu" class="h-8 w-8"></i>
+                </button>
+            </div>
+        </header>
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-teal-50/95 z-40 flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-button" class="absolute top-6 right-6">
+                <i data-lucide="x" class="h-10 w-10"></i>
+            </button>
+            <a href="#about" class="nav-link text-3xl font-bold text-slate-700">About</a>
+            <a href="#publications" class="nav-link text-3xl font-bold text-slate-700">Publications</a>
+            <a href="#experience" class="nav-link text-3xl font-bold text-slate-700">Experience</a>
+            <a href="#education" class="nav-link text-3xl font-bold text-slate-700">Education</a>
+            <a href="#awards" class="nav-link text-3xl font-bold text-slate-700">Awards</a>
+            <a href="#volunteer" class="nav-link text-3xl font-bold text-slate-700">Volunteer</a>
+            <a href="#contact" class="nav-link text-3xl font-bold text-slate-700">Contact</a>
+        </div>
+    </div>
 
-				<!-- Main -->
-					<div id="main">
 
-						<!-- One -->
-							<section id="one">
-								<div class="image main" data-position="center">
-									<img src="images/main.jpeg" alt="" />
-								</div>
-								<div class="container">
-									<header class="major">
-										<h3>Education</h3>
-									</header>
-									<p>
-										Currently, I am pursuing Masters in Computer Science at Univeristy of Maryland (UMD). 
-									    I did my bachelors in Computer Science from UMD.
-									</p>
-								</div>
-							</section>
+    <!-- Main Content Area with Sticky Nav -->
+    <div class="container mx-auto px-6">
+        <div class="flex flex-row-reverse md:gap-12">
+            <!-- Desktop Vertical Navigation -->
+            <aside class="hidden md:block w-24 flex-shrink-0">
+                <nav class="sticky top-24">
+                    <div class="glass-panel p-2 flex flex-col items-center space-y-2">
+                        <a href="#about" class="nav-link group relative flex items-center justify-center" title="About">
+                            <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="user-round" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">About</span>
+                        </a>
+                        <a href="#publications" class="nav-link group relative flex items-center justify-center" title="Publications">
+                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="file-text" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Publications</span>
+                        </a>
+                        <a href="#experience" class="nav-link group relative flex items-center justify-center" title="Experience">
+                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="briefcase" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Experience</span>
+                        </a>
+                        <a href="#education" class="nav-link group relative flex items-center justify-center" title="Education">
+                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="graduation-cap" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Education</span>
+                        </a>
+                        <a href="#awards" class="nav-link group relative flex items-center justify-center" title="Awards">
+                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="award" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Awards</span>
+                        </a>
+                        <a href="#volunteer" class="nav-link group relative flex items-center justify-center" title="Volunteer Work">
+                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="users-round" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Volunteer</span>
+                        </a>
+                        <a href="#contact" class="nav-link group relative flex items-center justify-center" title="Contact">
+                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
+                                <i data-lucide="mail" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                            </div>
+                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Contact</span>
+                        </a>
+                    </div>
+                </nav>
+            </aside>
 
-						<!-- Two -->
-							<section id="two">
-								<div class="container">
-									<h3>Work Experience</h3>
-										<li> Amazon </li>
-										    <p> Worked with Amazon for two summers with their business to customer team.
-											    For the first project, added two new widgets to an existing operational excellence tool, which automated the process of
-												capturing two key operational excellence metrics for 400+ teams across Amazon.
-											    For the second project, built Cashback Abuse Prevent System (CAPS) to automate the process of identifying bad actors who
-												create multiple accounts to abuse cashback promotions and excluding them from promotion campaign </p>
-										<li> OCR Services Inc.</li>
-										     <p> Utilized Spring Framework in Java and Adobe PDF API to convert database containing information about
-												federal trade regulations into a readable and exportable PDF book format for the customers of OCR Services Inc. </p>
-										<li> MIND Lab (UMD) </li>
-										     <p> Developed a front-end web application to visualize data from thousands of sensors capturing data like
-												temperature, carbon dioxide, airflow in Iribe Building at UMD. </p>
-										<li> Global Vox Inc. </li>
-												<p> Wrote blogs and created digital graphics on current trends in Artificial Intelligence and Machine Learning.</p>
-										<li> Undergraduate Teaching Fellow at UMD</li>
-										        <p> Selected as Undergraduate Teaching Fellow for Gemstone introductory research class at UMD. Developed lesson plans for 1-hour discussion each week to help students discover their research interest
-													and compose their research proposal.</p>
-										<li> Computing Instructor </li>
-										        <p> Selected as tutor for UMD's Iribe Initiative for Inclusion and Diversity in Computing. Offered 1-on-1 tutoring and bi-weekly guided study sessions for college students taking the
-													fundamentals of programming languages and algorithms.</p>
-								</div>
-							</section>
+            <!-- Scrolling Content -->
+            <main class="w-full pt-12">
+                <div class="space-y-16">
+                    <!-- About Me Section -->
+                    <section id="about">
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-8 text-center md:text-left">About Me</h2>
+                            <div class="space-y-4 text-lg text-slate-600">
+                                <p>I'm a Computer Science Ph.D. student at the University of Maryland with a strong interest in the intersection of machine learning and computer architecture. My journey began as an undergraduate, where I was captivated by the potential of machine learning to solve complex, real-world problems. That curiosity deepened during my master’s studies when I took an advanced computer architecture course taught by <a href="https://www.cs.umd.edu/~bahar/" target="_blank" class="text-blue-600 hover:underline">Dr. Bahar Asgari</a>, who is now my Ph.D. advisor. In that course, I was introduced to cutting-edge research and developed a deeper appreciation for the architectural challenges posed by input sparsity, workload variability, and resource bottlenecks. I became particularly fascinated by the promise of hardware-software co-design—an approach that combines algorithmic intelligence with architectural innovation to enhance system performance.</p>
 
-						<!-- Three -->
-							<section id="three">
-								<div class="container">
-									<h3>Other Experiences</h3>
-									<li> Accepted to 2020-2021 class of Google CS Research Mentorship Program. Participated in undergraduate
-										research seminar focused on security, privacy, abuse prevention and Machine Learning </li>
-									<li> Accepted to selective 4-year team research program in Gemstone, Honors College at UMD. Researching
-										factors to optimize the output of piezoelectric material to build a prototype of cost-effective piezoelectric
-										floor tiles that will generate energy from footsteps. </li>
-									<li> Founder of You Matter Campaign. Collaborated with Pratham NGO to launch 'You matter' campaign to educate girls in India. Enough funds raised to benefit 150 girls and growing. </li>
-									
-								</div>
-							</section>
+                                <p>Today, my research focuses on how machine learning can be leveraged to make hardware architectures more efficient, adaptive, and intelligent. I’m especially interested in techniques that address the inefficiencies caused by sparsity, exploring methods to dynamically optimize computation and memory access patterns. My goal is to help design systems that are not only faster and more efficient, but also better suited to the demands of modern, data-intensive applications.</p>
+                            </div>
+                        </div>
+                    </section>
 
-							<section id="four">
-								<div class="container">
-									<h3>Accomplishments</h3>
-									<li> Capital One Bank Dean's Scholarship Fund in Computer Science </li>
-									<li> Secured second prize in the TIBCO Spotfire Modathon </li>
-									<li> Dean's List for Academic Excellence </li>
-									<li> State of Maryland Governor's award for academic excellence </li>
-									
-								</div>
-							</section>
+                    <!-- Publications Section -->
+                    <section id="publications"></section>
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Publications</h2>
+                            <div class="max-w-4xl space-y-8">
+                              <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <h3 class="text-xl text-slate-800">Misam: Machine Learning–Assisted Dataflow Selection in Accelerators for Sparse Matrix Multiplication</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, Amirmahdi Namjoo & Bahar Asgari</p>
+                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">MICRO</span>, 2025</p>
+                                    <!-- <div class="mt-4 space-x-4">
+                                        <a href="/Users/sanjaliyadav/workspace/SanjaliYadav.github.io/papers/DynaFlow_CAL_2025.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
+                                    </div> -->
+                                </div>
+                              <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <h3 class="text-xl text-slate-800">Boötes: Boosting the Efficiency of Sparse Accelerators Using Spectral Clustering</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, & Bahar Asgari</p>
+                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">MICRO</span>, 2025</p>
+                                    <!-- <div class="mt-4 space-x-4">
+                                        <a href="" class="text-teal-600 hover:underline font-semibold">Paper</a>
+                                    </div> -->
+                                </div>
+                                <!-- Publication Item -->
+                                <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <h3 class="text-xl text-slate-800">DynaFlow: An ML Framework for Dynamic Dataflow Selection in SpGEMM accelerators</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, & Bahar Asgari</p>
+                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">IEEE CAL</span>, 2025</p>
+                                    <div class="mt-4 space-x-4">
+                                        <a href="/Users/sanjaliyadav/workspace/SanjaliYadav.github.io/papers/DynaFlow_CAL_2025.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
+                                    </div>
+                                </div>
+                                <!-- Publication Item -->
+                                <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <h3 class="text-xl text-slate-800">Misam: Using ML in Dataflow Selection of Sparse-Sparse Matrix Multiplication</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span> & Bahar Asgari</p>
+                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">MLArchSys Workshop at ISCA </span>, 2024</p>
+                                    <div class="mt-4 space-x-4">
+                                        <a href="/Users/sanjaliyadav/workspace/SanjaliYadav.github.io/papers/Misam_MLarchsys.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
+                                        <a href="/Users/sanjaliyadav/workspace/SanjaliYadav.github.io/papers/Misam_SRC_Poster.pptx.pdf" class="text-teal-600 hover:underline font-semibold">Poster</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-						<!-- Five -->
-						<!--
-							<section id="five">
-								<div class="container">
-									<h3>Elements</h3>
+                    <!-- Experience Section -->
+                    <section id="experience">
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Experience</h2>
+                            <div class="max-w-xl relative pl-10 space-y-12">
+                                <div class="timeline-item relative">
+                                    <div class="timeline-dot"></div>
+                                    <p class="text-base font-medium text-teal-600">Jan. 2024 - Present</p>
+                                    <h3 class="text-xl text-slate-800 mt-1">Computer Architecture Systems Lab, UMD</h3>
+                                    <p class="text-slate-500">Software Engineering Intern</p>
+                                </div>
+                                <div class="timeline-item relative">
+                                    <div class="timeline-dot"></div>
+                                    <p class="text-base font-medium text-teal-600">Summer 2024</p>
+                                    <h3 class="text-xl text-slate-800 mt-1">Capital One</h3>
+                                    <p class="text-slate-500">Software Engineering Intern</p>
+                                </div>
+                                <div class="timeline-item relative">
+                                    <div class="timeline-dot"></div>
+                                    <p class="text-base font-medium text-teal-600">Summer 2023</p>
+                                    <h3 class="text-xl text-slate-800 mt-1">Capital One</h3>
+                                    <p class="text-slate-500">Software Engineering Intern</p>
+                                </div>
+                                <!-- Timeline Item -->
+                                <div class="timeline-item relative">
+                                    <div class="timeline-dot"></div>
+                                    <p class="text-base font-medium text-teal-600">Summer 2022</p>
+                                    <h3 class="text-xl text-slate-800 mt-1">Amazon</h3>
+                                    <p class="text-slate-500">Software Development Intern</p>
+                                </div>
+                                <!-- Timeline Item -->
+                                <div class="timeline-item relative">
+                                    <div class="timeline-dot"></div>
+                                    <p class="text-base font-medium text-teal-600">Summer 2021</p>
+                                    <h3 class="text-xl text-slate-800 mt-1">Amazon</h3>
+                                    <p class="text-slate-500">Software Development Intern</p>
+                                </div>
+                                <div class="timeline-item relative">
+                                    <div class="timeline-dot"></div>
+                                    <p class="text-base font-medium text-teal-600"> Dec. 2019 - Dec. 2022</p>
+                                    <h3 class="text-xl text-slate-800 mt-1">Maryland Information and Network Dynamics Lab, UMD</h3>
+                                    <p class="text-slate-500">Undergraduate Research Assistant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
+                    <!-- Education Section -->
+                    <section id="education">
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Education</h2>
+                            <div class="max-w-xl space-y-8">
+                                 <!-- List Item -->
+                                <div class="flex items-start">
+                                    <i data-lucide="graduation-cap" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2023</p>
+                                        <h3 class="text-xl text-slate-800">Ph.D. in Computer Scienc</h3>
+                                        <p class="text-slate-500">University of Maryland, College Park</p>
+                                    </div>
+                                </div>
+                                <!-- List Item -->
+                                <div class="flex items-start">
+                                    <i data-lucide="graduation-cap" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2022 - 2023</p>
+                                        <h3 class="text-xl text-slate-800">M.S. in Computer Science</h3>
+                                        <p class="text-slate-500">University of Maryland, College Park</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i data-lucide="graduation-cap" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2019 - 2022</p>
+                                        <h3 class="text-xl text-slate-800">B.S. in Computer Science</h3>
+                                        <p class="text-slate-500">University of Maryland, College Park</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>                
+                    <!-- Awards Section -->
+                    <section id="awards">
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Awards</h2>
+                            <div class="max-w-xl space-y-8">
+                                 <!-- List Item -->
+                                <div class="flex items-start">
+                                    <i data-lucide="award" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2024</p>
+                                        <h3 class="text-xl text-slate-800">First position at ACM Student Research Competition</h3>
+                                        <p class="text-slate-500">International Symposium on Microarchitecture (MICRO)</p>
+                                    </div>
+                                </div>
+                                <!-- List Item -->
+                                <div class="flex items-start">
+                                     <i data-lucide="award" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2022</p>
+                                        <h3 class="text-xl text-slate-800">Undergraduate Scholarship</h3>
+                                        <p class="text-slate-500">Capital One Bank Dean's Scholarship Fund in Computer Science</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
+                    <!-- Volunteer Work Section -->
+                    <section id="volunteer">
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Volunteer Work</h2>
+                            <div class="max-w-xl space-y-8">
+                                <!-- List Item -->
+                                <!-- <div class="flex items-start">
+                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2025</p>
+                                        <h3 class="text-xl text-slate-800">MICRO Artific</h3>
+                                        <p class="text-slate-500">Girls Who Code</p>
+                                    </div>
+                                </div> -->
+                                <!-- List Item -->
+                                <div class="flex items-start">
+                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-base font-medium text-teal-600">2024</p>
+                                        <h3 class="text-xl text-slate-800">ISCA Artifact Evaluation Committee</h3>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
+                    <!-- Contact Section -->
+                    <section id="contact">
+                        <div class="glass-panel p-8 md:p-12 text-center">
+                             <h2 class="text-3xl sm:text-4xl text-slate-800 mb-8">Get In Touch</h2>
+                             <p class="max-w-2xl mx-auto text-lg">
+                                 I'm always open to discussing research, new ideas, or potential collaborations. Feel free to reach out.
+                             </p>
+                             <a href="mailto:sanjali7@umd.edu" 
+                                class="mt-8 inline-block bg-teal-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-teal-400/50 transform">
+                                sanjali7@umd.edu
+                             </a>
+                        </div>
+                    </section>
+                    
+                    <!-- Footer -->
+                    <footer class="text-slate-500 py-8 text-center">
+                        <!-- <div class="flex justify-center space-x-5 mb-4">
+                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="Google Scholar"><i data-lucide="graduation-cap" class="w-6 h-6"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="Twitter"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="GitHub"><i data-lucide="github" class="w-6 h-6"></i></a>
+                        </div> -->
+                        <p>&copy; <span id="year"></span> Sanjali Yadav. All Rights Reserved.</p>
+                    </footer>
+                </div>
+            </main>
+        </div>
+    </div>
 
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
 
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
+        // --- Mobile menu toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
 
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
+        // --- Set current year in footer ---
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
+        // --- Smooth scroll for navigation links ---
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Hide mobile menu on click if it's open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
 
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
 
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
-								</div>
-							</section>
-						-->
-
-					</div>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+                if(targetElement) {
+                    const offset = 80; // Extra space from the top
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = targetElement.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>
