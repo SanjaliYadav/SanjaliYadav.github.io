@@ -16,461 +16,661 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -1.25rem; /* Correctly positioned in the parent's padding */
-            top: 0.25rem; 
-            bottom: -3rem; 
+            left: -1.25rem;
+            top: 0.25rem;
+            bottom: -3rem;
             width: 2px;
-            background-color: #99f6e4; /* teal-200 */
+            background-color: #99f6e4;
         }
         .timeline-item:last-child::before {
             display: none;
         }
         .timeline-dot {
             position: absolute;
-            left: calc(-1.25rem - 0.4375rem + 1px); /* Centered on the timeline bar */
+            left: calc(-1.25rem - 0.4375rem + 1px);
             top: 0.25rem;
-            height: 0.875rem; /* 14px */
-            width: 0.875rem; /* 14px */
+            height: 0.875rem;
+            width: 0.875rem;
             background-color: white;
-            border: 2px solid #0d9488; /* teal-600 */
+            border: 2px solid #0d9488;
             border-radius: 9999px;
             z-index: 10;
         }
         .glass-panel {
-            @apply bg-white/60 backdrop-blur-xl rounded-3xl shadow-lg border border-white/20;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         h1, h2, h3 {
             font-family: 'Source Serif Pro', serif;
             font-weight: 700;
         }
+        /* Active nav highlight */
+        .nav-link.active {
+            background: rgba(255,255,255,0.7);
+        }
+        .nav-link.active .nav-icon-wrap svg {
+            color: #10b981;
+        }
+        .nav-link.active span {
+            color: #0d9488;
+        }
+        /* Section heading underline accent */
+        .section-heading {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2.5rem;
+            height: 3px;
+            background: linear-gradient(90deg, #0d9488, #34d399);
+            border-radius: 9999px;
+        }
+        /* Venue badge */
+        .venue-badge {
+            display: inline-block;
+            padding: 0.15rem 0.65rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            background: #ccfbf1;
+            color: #0f766e;
+            border: 1px solid #99f6e4;
+        }
+        /* Tag chip */
+        .tag-chip {
+            display: inline-block;
+            padding: 0.2rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: rgba(13,148,136,0.08);
+            color: #0f766e;
+            border: 1px solid rgba(13,148,136,0.2);
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-50 via-teal-50 to-cyan-100 text-slate-700">
 
+    <!-- ===== HEADER ===== -->
     <header id="page-header">
-        <!-- Full-width Nature Image -->
-         <div class="h-80 md:h-96 bg-cover bg-center" style="background-image: url('images/main.jpeg');"></div>
-        </div>
+        <!-- Banner image -->
+        <div class="h-72 md:h-88 bg-cover bg-center" style="background-image: url('images/main.jpeg'); height: 22rem;"></div>
 
-        <!-- Profile Info Section -->
-        <div class="bg-gradient-to-b from-teal-50/70 to-green-50/70 backdrop-blur-lg py-6">
+        <!-- Profile strip -->
+        <div class="bg-gradient-to-b from-teal-50/80 to-green-50/80 backdrop-blur-lg border-b border-teal-100/50 py-6">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <!-- Bio Text -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <!-- Name + title + social links -->
                     <div class="text-center md:text-left">
-                         <h1 class="text-4xl md:text-5xl text-slate-800">Sanjali Yadav</h1>
-                         <p class="mt-2 text-xl md:text-2xl text-teal-700 font-semibold">Ph.D. Student at University of Maryland, College Park</p>
+                        <h1 class="text-4xl md:text-5xl text-slate-800">Sanjali Yadav</h1>
+                        <p class="mt-1 text-xl md:text-2xl text-teal-700 font-semibold">Ph.D. Student &mdash; University of Maryland, College Park</p>
                     </div>
-                    <!-- Profile Image -->
-                    <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 mt-6 md:mt-0 md:ml-8">
-                         <img src="images/Profil.PNG" 
-                              alt="A professional headshot of Sanjali" 
-                              class="rounded-full object-cover object-top w-full h-full shadow-2xl ring-4 ring-white/50">
+                    <!-- Profile image -->
+                    <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                        <img src="images/Profil.PNG"
+                             alt="A professional headshot of Sanjali"
+                             class="rounded-full object-cover object-top w-full h-full shadow-2xl ring-4 ring-white/60">
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    
-    <!-- Mobile Header & Menu -->
+
+    <!-- ===== MOBILE HEADER & MENU ===== -->
     <div class="md:hidden">
-        <header class="fixed top-0 left-0 right-0 z-50 bg-teal-50/80 backdrop-blur-lg shadow-md">
+        <header class="fixed top-0 left-0 right-0 z-50 bg-teal-50/90 backdrop-blur-lg shadow-md">
             <div class="container mx-auto px-6 flex justify-between items-center h-16">
                 <h1 class="text-xl font-bold text-slate-800">Sanjali Yadav</h1>
-                <button id="mobile-menu-button">
+                <button id="mobile-menu-button" aria-label="Open menu">
                     <i data-lucide="menu" class="h-8 w-8"></i>
                 </button>
             </div>
         </header>
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-teal-50/95 z-40 flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-button" class="absolute top-6 right-6">
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-teal-50/97 z-40 flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-button" class="absolute top-6 right-6" aria-label="Close menu">
                 <i data-lucide="x" class="h-10 w-10"></i>
             </button>
-            <a href="#about" class="nav-link text-3xl font-bold text-slate-700">About</a>
+            <a href="#about"        class="nav-link text-3xl font-bold text-slate-700">About</a>
             <a href="#publications" class="nav-link text-3xl font-bold text-slate-700">Publications</a>
-            <a href="#experience" class="nav-link text-3xl font-bold text-slate-700">Experience</a>
-            <a href="#education" class="nav-link text-3xl font-bold text-slate-700">Education</a>
-            <a href="#awards" class="nav-link text-3xl font-bold text-slate-700">Awards</a>
-            <a href="#volunteer" class="nav-link text-3xl font-bold text-slate-700">Volunteer</a>
-            <a href="#contact" class="nav-link text-3xl font-bold text-slate-700">Contact</a>
+            <a href="#experience"   class="nav-link text-3xl font-bold text-slate-700">Experience</a>
+            <a href="#education"    class="nav-link text-3xl font-bold text-slate-700">Education</a>
+            <a href="#awards"       class="nav-link text-3xl font-bold text-slate-700">Awards</a>
+            <a href="#service"      class="nav-link text-3xl font-bold text-slate-700">Service</a>
+            <a href="#contact"      class="nav-link text-3xl font-bold text-slate-700">Contact</a>
+            <a href="#sunsets"      class="nav-link text-3xl font-bold text-slate-700">Sunsets</a>
         </div>
     </div>
 
 
-    <!-- Main Content Area with Sticky Nav -->
+    <!-- ===== MAIN CONTENT + STICKY SIDE NAV ===== -->
     <div class="container mx-auto px-6">
         <div class="flex flex-row-reverse md:gap-12">
-            <!-- Desktop Vertical Navigation -->
-            <aside class="hidden md:block w-24 flex-shrink-0">
+
+            <!-- Desktop vertical navigation -->
+            <aside class="hidden md:block w-20 flex-shrink-0">
                 <nav class="sticky top-24">
-                    <div class="glass-panel p-2 flex flex-col items-center space-y-2">
-                        <a href="#about" class="nav-link group relative flex items-center justify-center" title="About">
-                            <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="user-round" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+                    <div class="glass-panel py-3 px-2 flex flex-col items-center space-y-1">
+
+                        <a href="#about" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="user-round" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">About</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">About</span>
                         </a>
-                        <a href="#publications" class="nav-link group relative flex items-center justify-center" title="Publications">
-                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="file-text" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+
+                        <a href="#publications" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="file-text" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Publications</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Papers</span>
                         </a>
-                        <a href="#experience" class="nav-link group relative flex items-center justify-center" title="Experience">
-                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="briefcase" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+
+                        <a href="#experience" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="briefcase" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Experience</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Exp</span>
                         </a>
-                        <a href="#education" class="nav-link group relative flex items-center justify-center" title="Education">
-                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="graduation-cap" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+
+                        <a href="#education" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Education</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Edu</span>
                         </a>
-                        <a href="#awards" class="nav-link group relative flex items-center justify-center" title="Awards">
-                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="award" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+
+                        <a href="#awards" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="award" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Awards</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Awards</span>
                         </a>
-                        <a href="#volunteer" class="nav-link group relative flex items-center justify-center" title="Volunteer Work">
-                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="users-round" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+
+                        <a href="#service" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="users-round" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Volunteer</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Service</span>
                         </a>
-                        <a href="#contact" class="nav-link group relative flex items-center justify-center" title="Contact">
-                             <div class="w-14 h-14 rounded-full flex items-center justify-center bg-white/40 group-hover:bg-white transition-all duration-300 group-hover:shadow-[0_0_20px_5px_rgba(52,211,153,0.7)]">
-                                <i data-lucide="mail" class="text-slate-600 group-hover:text-emerald-500 transition-colors duration-300"></i>
+
+                        <a href="#contact" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
                             </div>
-                            <span class="absolute right-full mr-4 px-3 py-1.5 rounded-md bg-slate-800 text-white text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Contact</span>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Contact</span>
                         </a>
+
+                        <a href="#sunsets" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
+                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
+                                <i data-lucide="sun" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
+                            </div>
+                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Photos</span>
+                        </a>
+
                     </div>
                 </nav>
             </aside>
 
-            <!-- Scrolling Content -->
+            <!-- Scrolling content -->
             <main class="w-full pt-12">
                 <div class="space-y-16">
-                    <!-- About Me Section -->
+
+                    <!-- ===== ABOUT ===== -->
                     <section id="about">
                         <div class="glass-panel p-8 md:p-12">
-                            <div class="flex items-center justify-center md:justify-start mb-8">
-                                <h2 class="text-3xl sm:text-4xl text-slate-800">About Me</h2>
-                                <a href="papers/Sanjali_Yadav_CV_PhD_2025.pdf" 
+                            <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
+                                <h2 class="section-heading text-3xl sm:text-4xl text-slate-800">About Me</h2>
+                                <a href="papers/Sanjali_Yadav_CV_PhD_2025.pdf"
                                    target="_blank"
-                                   class="ml-4 w-12 h-12 bg-white border-2 border-teal-700 hover:border-teal-800 text-teal-700 hover:text-teal-800 rounded-full flex items-center justify-center font-semibold text-xs transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-teal-300/50 transform"
+                                   class="w-12 h-12 bg-white border-2 border-teal-700 hover:border-teal-800 text-teal-700 hover:text-teal-800 rounded-full flex items-center justify-center font-semibold text-xs transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-teal-300/50 transform"
                                    title="Download CV">
                                     CV
                                 </a>
                             </div>
+
                             <div class="space-y-4 text-lg text-slate-600">
-                                <p>I'm a Computer Science Ph.D. student at the University of Maryland with a strong interest in the intersection of machine learning and computer architecture. My journey began as an undergraduate, where I was captivated by the potential of machine learning to solve complex, real-world problems. That curiosity deepened during my master’s studies when I took an advanced computer architecture course taught by <a href="https://www.cs.umd.edu/~bahar/" target="_blank" class="text-blue-600 hover:underline">Dr. Bahar Asgari</a>, who is now my Ph.D. advisor. In that course, I was introduced to cutting-edge research and developed a deeper appreciation for the architectural challenges posed by input sparsity, workload variability, and resource bottlenecks. I became particularly fascinated by the promise of hardware-software co-design—an approach that combines algorithmic intelligence with architectural innovation to enhance system performance.</p>
+                                <p>I'm a Computer Science Ph.D. student at the University of Maryland with a strong interest in the intersection of machine learning and computer architecture. My journey began as an undergraduate, where I was captivated by the potential of machine learning to solve complex, real-world problems. That curiosity deepened during my master's studies when I took an advanced computer architecture course taught by <a href="https://www.cs.umd.edu/~bahar/" target="_blank" class="text-teal-700 hover:underline font-medium">Dr. Bahar Asgari</a>, who is now my Ph.D. advisor. In that course, I was introduced to cutting-edge research and developed a deeper appreciation for the architectural challenges posed by input sparsity, workload variability, and resource bottlenecks. I became particularly fascinated by the promise of hardware-software co-design—an approach that combines algorithmic intelligence with architectural innovation to enhance system performance.</p>
 
-                                <p>Today, my research focuses on how machine learning can be leveraged to make hardware architectures more efficient, adaptive, and intelligent. I’m especially interested in techniques that address the inefficiencies caused by sparsity, exploring methods to dynamically optimize computation and memory access patterns. My goal is to help design systems that are not only faster and more efficient, but also better suited to the demands of modern, data-intensive applications.</p>
+                                <p>Today, my research focuses on how machine learning can be leveraged to make hardware architectures more efficient, adaptive, and intelligent. I'm especially interested in techniques that address the inefficiencies caused by sparsity, exploring methods to dynamically optimize computation and memory access patterns. My goal is to help design systems that are not only faster and more efficient, but also better suited to the demands of modern, data-intensive applications.</p>
+                            </div>
+
+                            <!-- Research interests -->
+                            <div class="mt-8 pt-6 border-t border-teal-100">
+                                <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Research Interests</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag-chip">Sparse Matrix Computation</span>
+                                    <span class="tag-chip">Hardware-Software Co-Design</span>
+                                    <span class="tag-chip">ML for Architecture</span>
+                                    <span class="tag-chip">Sparse Accelerators</span>
+                                    <span class="tag-chip">Dataflow Optimization</span>
+                                    <span class="tag-chip">Computer Architecture</span>
+                                </div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- Publications Section -->
-                    <section id="publications"></section>
+                    <!-- ===== PUBLICATIONS ===== -->
+                    <section id="publications">
                         <div class="glass-panel p-8 md:p-12">
-                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Publications</h2>
-                            <div class="max-w-4xl space-y-8">
-                            <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
-                                <h3 class="text-xl text-slate-800">Situla: Studying the Interplay of Sparse Formats and CPU/GPU Libraries</h3>
-                                <p class="mt-2 text-slate-600">Amirmahdi Namjoo, <span class="font-semibold">Sanjali Yadav</span>, Helya Hosseini & Bahar Asgari</p>
-                                <p class="mt-1 text-base text-slate-500"><span class="font-medium">MICRO</span>, 2025</p>
-                            </div>
-                              <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
-                                    <h3 class="text-xl text-slate-800">Misam: Machine Learning–Assisted Dataflow Selection in Accelerators for Sparse Matrix Multiplication</h3>
-                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, Amirmahdi Namjoo & Bahar Asgari</p>
-                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">MICRO</span>, 2025</p>
-                                    <div class="mt-4 space-x-4">
-                                        <a href="papers/Misam.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
-                                    </div>
-                                </div>
-                              <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
-                                    <h3 class="text-xl text-slate-800">Boötes: Boosting the Efficiency of Sparse Accelerators Using Spectral Clustering</h3>
-                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, & Bahar Asgari</p>
-                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">MICRO</span>, 2025</p>
-                                    <div class="mt-4 space-x-4">
-                                        <a href="papers/Bootes.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
-                                    </div>
-                                </div>
-                                <!-- Publication Item -->
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-12">Publications</h2>
+                            <div class="max-w-4xl space-y-6">
+
                                 <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
-                                    <h3 class="text-xl text-slate-800">DynaFlow: An ML Framework for Dynamic Dataflow Selection in SpGEMM accelerators</h3>
-                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, & Bahar Asgari</p>
-                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">IEEE CAL</span>, 2025</p>
-                                    <div class="mt-4 space-x-4">
-                                        <a href="papers/DynaFlow_CAL_2025.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
+                                    <div class="flex flex-wrap gap-2 mb-2">
+                                        <span class="venue-badge">ISPASS 2026</span>
                                     </div>
+                                    <h3 class="text-xl text-slate-800">Situla: Studying the Interplay of Sparse Formats and CPU/GPU Libraries</h3>
+                                    <p class="mt-2 text-slate-600">Amirmahdi Namjoo, <span class="font-semibold">Sanjali Yadav</span>, Helya Hosseini &amp; Bahar Asgari</p>
                                 </div>
-                                <!-- Publication Item -->
+
                                 <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                                        <span class="venue-badge">MICRO 2025</span>
+                                        <a href="papers/Misam.pdf" class="text-teal-600 hover:underline font-semibold text-sm">Paper &rarr;</a>
+                                    </div>
+                                    <h3 class="text-xl text-slate-800">Misam: Machine Learning&ndash;Assisted Dataflow Selection in Accelerators for Sparse Matrix Multiplication</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span>, Amirmahdi Namjoo &amp; Bahar Asgari</p>
+                                </div>
+
+                                <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                                        <span class="venue-badge">MICRO 2025</span>
+                                        <a href="papers/Bootes.pdf" class="text-teal-600 hover:underline font-semibold text-sm">Paper &rarr;</a>
+                                    </div>
+                                    <h3 class="text-xl text-slate-800">Bo&ouml;tes: Boosting the Efficiency of Sparse Accelerators Using Spectral Clustering</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span> &amp; Bahar Asgari</p>
+                                </div>
+
+                                <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                                        <span class="venue-badge">IEEE CAL 2025</span>
+                                        <a href="papers/DynaFlow_CAL_2025.pdf" class="text-teal-600 hover:underline font-semibold text-sm">Paper &rarr;</a>
+                                    </div>
+                                    <h3 class="text-xl text-slate-800">DynaFlow: An ML Framework for Dynamic Dataflow Selection in SpGEMM Accelerators</h3>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span> &amp; Bahar Asgari</p>
+                                </div>
+
+                                <div class="p-6 rounded-xl bg-white/50 border border-teal-100 hover:shadow-lg hover:border-teal-200 transition-all duration-300">
+                                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                                        <span class="venue-badge">MLArchSys @ ISCA 2024</span>
+                                        <a href="papers/Misam_MLarchsys.pdf" class="text-teal-600 hover:underline font-semibold text-sm">Paper &rarr;</a>
+                                        <a href="papers/Misam_SRC_Poster.pptx.pdf" class="text-teal-600 hover:underline font-semibold text-sm">Poster &rarr;</a>
+                                    </div>
                                     <h3 class="text-xl text-slate-800">Misam: Using ML in Dataflow Selection of Sparse-Sparse Matrix Multiplication</h3>
-                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span> & Bahar Asgari</p>
-                                    <p class="mt-1 text-base text-slate-500"><span class="font-medium">MLArchSys Workshop at ISCA </span>, 2024</p>
-                                    <div class="mt-4 space-x-4">
-                                        <a href="papers/Misam_MLarchsys.pdf" class="text-teal-600 hover:underline font-semibold">Paper</a>
-                                        <a href="papers/Misam_SRC_Poster.pptx.pdf" class="text-teal-600 hover:underline font-semibold">Poster</a>
-                                    </div>
+                                    <p class="mt-2 text-slate-600"><span class="font-semibold">Sanjali Yadav</span> &amp; Bahar Asgari</p>
                                 </div>
+
                             </div>
                         </div>
                     </section>
 
-                    <!-- Experience Section -->
+                    <!-- ===== EXPERIENCE ===== -->
                     <section id="experience">
                         <div class="glass-panel p-8 md:p-12">
-                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Experience</h2>
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-12">Experience</h2>
                             <div class="max-w-xl relative pl-10 space-y-12">
+
                                 <div class="timeline-item relative">
                                     <div class="timeline-dot"></div>
-                                    <p class="text-base font-medium text-teal-600">Jan. 2024 - Present</p>
+                                    <p class="text-base font-medium text-teal-600">Jan. 2024 &ndash; Present</p>
                                     <h3 class="text-xl text-slate-800 mt-1">Computer Architecture Systems Lab, UMD</h3>
-                                    <p class="text-slate-500">Software Engineering Intern</p>
+                                    <p class="text-slate-500">Graduate Research Assistant</p>
                                 </div>
+
                                 <div class="timeline-item relative">
                                     <div class="timeline-dot"></div>
                                     <p class="text-base font-medium text-teal-600">Summer 2024</p>
                                     <h3 class="text-xl text-slate-800 mt-1">Capital One</h3>
                                     <p class="text-slate-500">Software Engineering Intern</p>
                                 </div>
+
                                 <div class="timeline-item relative">
                                     <div class="timeline-dot"></div>
                                     <p class="text-base font-medium text-teal-600">Summer 2023</p>
                                     <h3 class="text-xl text-slate-800 mt-1">Capital One</h3>
                                     <p class="text-slate-500">Software Engineering Intern</p>
                                 </div>
-                                <!-- Timeline Item -->
+
                                 <div class="timeline-item relative">
                                     <div class="timeline-dot"></div>
                                     <p class="text-base font-medium text-teal-600">Summer 2022</p>
                                     <h3 class="text-xl text-slate-800 mt-1">Amazon</h3>
                                     <p class="text-slate-500">Software Development Intern</p>
                                 </div>
-                                <!-- Timeline Item -->
+
                                 <div class="timeline-item relative">
                                     <div class="timeline-dot"></div>
                                     <p class="text-base font-medium text-teal-600">Summer 2021</p>
                                     <h3 class="text-xl text-slate-800 mt-1">Amazon</h3>
                                     <p class="text-slate-500">Software Development Intern</p>
                                 </div>
+
                                 <div class="timeline-item relative">
                                     <div class="timeline-dot"></div>
-                                    <p class="text-base font-medium text-teal-600"> Dec. 2019 - Dec. 2022</p>
+                                    <p class="text-base font-medium text-teal-600">Dec. 2019 &ndash; Dec. 2022</p>
                                     <h3 class="text-xl text-slate-800 mt-1">Maryland Information and Network Dynamics Lab, UMD</h3>
                                     <p class="text-slate-500">Undergraduate Research Assistant</p>
                                 </div>
+
                             </div>
                         </div>
                     </section>
 
-                    <!-- Education Section -->
+                    <!-- ===== EDUCATION ===== -->
                     <section id="education">
                         <div class="glass-panel p-8 md:p-12">
-                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Education</h2>
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-12">Education</h2>
                             <div class="max-w-xl space-y-8">
-                                 <!-- List Item -->
+
                                 <div class="flex items-start">
                                     <i data-lucide="graduation-cap" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
                                     <div>
-                                        <p class="text-base font-medium text-teal-600">2023</p>
+                                        <p class="text-base font-medium text-teal-600">2023 &ndash; Present</p>
                                         <h3 class="text-xl text-slate-800">Ph.D. in Computer Science</h3>
                                         <p class="text-slate-500">University of Maryland, College Park</p>
                                     </div>
                                 </div>
-                                <!-- List Item -->
+
                                 <div class="flex items-start">
                                     <i data-lucide="graduation-cap" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
                                     <div>
-                                        <p class="text-base font-medium text-teal-600">2022 - 2023</p>
+                                        <p class="text-base font-medium text-teal-600">2022 &ndash; 2023</p>
                                         <h3 class="text-xl text-slate-800">M.S. in Computer Science</h3>
                                         <p class="text-slate-500">University of Maryland, College Park</p>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
                                     <i data-lucide="graduation-cap" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
                                     <div>
-                                        <p class="text-base font-medium text-teal-600">2019 - 2022</p>
+                                        <p class="text-base font-medium text-teal-600">2019 &ndash; 2022</p>
                                         <h3 class="text-xl text-slate-800">B.S. in Computer Science</h3>
                                         <p class="text-slate-500">University of Maryland, College Park</p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
-                    </section>                
-                    <!-- Awards Section -->
+                    </section>
+
+                    <!-- ===== AWARDS ===== -->
                     <section id="awards">
                         <div class="glass-panel p-8 md:p-12">
-                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Awards</h2>
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-12">Awards</h2>
                             <div class="max-w-xl space-y-8">
-                                 <!-- List Item -->
+
                                 <div class="flex items-start">
                                     <i data-lucide="award" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2024</p>
-                                        <h3 class="text-xl text-slate-800">First position at ACM Student Research Competition</h3>
+                                        <h3 class="text-xl text-slate-800">First Place — ACM Student Research Competition</h3>
                                         <p class="text-slate-500">International Symposium on Microarchitecture (MICRO)</p>
                                     </div>
                                 </div>
-                                <!-- List Item -->
+
                                 <div class="flex items-start">
-                                     <i data-lucide="award" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="award" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2022</p>
                                         <h3 class="text-xl text-slate-800">Undergraduate Scholarship</h3>
                                         <p class="text-slate-500">Capital One Bank Dean's Scholarship Fund in Computer Science</p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </section>
 
-                    <!-- Volunteer Work Section -->
-                    <section id="volunteer">
+                    <!-- ===== SERVICE ===== -->
+                    <section id="service">
                         <div class="glass-panel p-8 md:p-12">
-                            <h2 class="text-3xl sm:text-4xl text-slate-800 mb-12 text-center md:text-left">Volunteer Work</h2>
-                            <div class="max-w-xl space-y-8">
-                                <!-- List Item -->
-                                <!-- <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
-                                    <div>
-                                        <p class="text-base font-medium text-teal-600">2025</p>
-                                        <h3 class="text-xl text-slate-800">MICRO Artific</h3>
-                                        <p class="text-slate-500">Girls Who Code</p>
-                                    </div>
-                                </div> -->
-                                <!-- List Item -->
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-12">Service</h2>
+                            <div class="max-w-xl space-y-6">
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2026</p>
-                                        <h3 class="text-xl text-slate-800">IEEE Transcations on Computer</h3>
+                                        <h3 class="text-lg text-slate-800">IEEE Transactions on Computers — Reviewer</h3>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2026</p>
-                                        <h3 class="text-xl text-slate-800">ISCA Artifact Evaluation Committee</h3>
+                                        <h3 class="text-lg text-slate-800">ISCA — Artifact Evaluation Committee</h3>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2025</p>
-                                        <h3 class="text-xl text-slate-800">MICRO Artifact Evaluation Committee</h3>
+                                        <h3 class="text-lg text-slate-800">MICRO — Artifact Evaluation Committee</h3>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2025</p>
-                                        <h3 class="text-xl text-slate-800">ISCA Artifact Evaluation Committee</h3>
+                                        <h3 class="text-lg text-slate-800">ISCA — Artifact Evaluation Committee</h3>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2025</p>
-                                        <h3 class="text-xl text-slate-800">IEEE Micro Journal Reviewer</h3>
+                                        <h3 class="text-lg text-slate-800">IEEE Micro — Journal Reviewer</h3>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2025</p>
-                                        <h3 class="text-xl text-slate-800">SPICE Workshop at MICRO2025 Student Volunteer</h3>
+                                        <h3 class="text-lg text-slate-800">SPICE Workshop @ MICRO 2025 — Student Volunteer</h3>
                                     </div>
                                 </div>
+
                                 <div class="flex items-start">
-                                    <i data-lucide="users-round" class="text-teal-600 mt-1 mr-4 flex-shrink-0"></i>
+                                    <i data-lucide="check-circle" class="text-teal-600 mt-0.5 mr-4 flex-shrink-0 w-5 h-5"></i>
                                     <div>
                                         <p class="text-base font-medium text-teal-600">2025</p>
-                                        <h3 class="text-xl text-slate-800">IEEE Transactions on Big Data Journal Reviewer</h3>
+                                        <h3 class="text-lg text-slate-800">IEEE Transactions on Big Data — Journal Reviewer</h3>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </section>
 
-                    <!-- Contact Section -->
+                    <!-- ===== CONTACT ===== -->
                     <section id="contact">
                         <div class="glass-panel p-8 md:p-12 text-center">
-                             <h2 class="text-3xl sm:text-4xl text-slate-800 mb-8">Get In Touch</h2>
-                             <p class="max-w-2xl mx-auto text-lg">
-                                 I'm always open to discussing research, new ideas, or potential collaborations. Feel free to reach out.
-                             </p>
-                             <a href="mailto:sanjali7@umd.edu" 
-                                class="mt-8 inline-block bg-teal-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-teal-400/50 transform">
-                                sanjali7@umd.edu
-                             </a>
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-8 inline-block">Get In Touch</h2>
+                            <p class="max-w-2xl mx-auto text-lg mt-6">
+                                I'm always open to discussing research, new ideas, or potential collaborations. Feel free to reach out.
+                            </p>
+                            <div class="mt-8 flex justify-center">
+                                <a href="mailto:sanjali7@umd.edu"
+                                   class="inline-flex items-center gap-2 bg-teal-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-teal-400/50 transform">
+                                    <i data-lucide="mail" class="w-4 h-4"></i>
+                                    sanjali7@umd.edu
+                                </a>
+                            </div>
                         </div>
                     </section>
-                    
+
+                    <!-- ===== SUNSETS ===== -->
+                    <section id="sunsets">
+                        <div class="glass-panel p-8 md:p-12">
+                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-4">📷</h2>
+                            <p class="text-slate-500 mb-10">In my free time, I love going on walks and stumbling across little moments in nature worth remembering. Click any photo to view it.</p>
+                            <!-- Grid gallery -->
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="sunset-gallery">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_3202.jpg" data-index="0">
+                                    <img src="images/IMG_3202.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_4872.jpg" data-index="1">
+                                    <img src="images/IMG_4872.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_6988.jpg" data-index="2">
+                                    <img src="images/IMG_6988.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_7896.jpg" data-index="3">
+                                    <img src="images/IMG_7896.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_7911.jpg" data-index="4">
+                                    <img src="images/IMG_7911.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_8070.jpg" data-index="5">
+                                    <img src="images/IMG_8070.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Lightbox -->
+                    <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm">
+                        <button id="lb-close" class="absolute top-5 right-5 text-white/80 hover:text-white transition-colors" aria-label="Close">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </button>
+                        <button id="lb-prev" class="absolute left-4 text-white/70 hover:text-white transition-colors" aria-label="Previous">
+                            <i data-lucide="chevron-left" class="w-10 h-10"></i>
+                        </button>
+                        <img id="lb-img" src="" alt="Sunset" class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl object-contain">
+                        <button id="lb-next" class="absolute right-4 text-white/70 hover:text-white transition-colors" aria-label="Next">
+                            <i data-lucide="chevron-right" class="w-10 h-10"></i>
+                        </button>
+                        <p id="lb-counter" class="absolute bottom-5 text-white/50 text-sm"></p>
+                    </div>
+
                     <!-- Footer -->
                     <footer class="text-slate-500 py-8 text-center">
-                        <!-- <div class="flex justify-center space-x-5 mb-4">
-                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="Google Scholar"><i data-lucide="graduation-cap" class="w-6 h-6"></i></a>
-                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
-                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="Twitter"><i data-lucide="twitter" class="w-6 h-6"></i></a>
-                            <a href="#" class="text-slate-500 hover:text-teal-600" aria-label="GitHub"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        </div> -->
                         <p>&copy; <span id="year"></span> Sanjali Yadav. All Rights Reserved.</p>
                     </footer>
+
                 </div>
             </main>
         </div>
     </div>
 
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
 
-        // --- Mobile menu toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMenuButton = document.getElementById('close-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-        });
-        closeMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-
-        // --- Set current year in footer ---
+        // Set year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // --- Smooth scroll for navigation links ---
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton  = document.getElementById('close-menu-button');
+        const mobileMenu       = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+        closeMenuButton.addEventListener('click',  () => mobileMenu.classList.add('hidden'));
+
+        // Smooth scroll for nav links + close mobile menu
         document.querySelectorAll('.nav-link').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                // Hide mobile menu on click if it's open
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if(targetElement) {
-                    const offset = 80; // Extra space from the top
-                    const bodyRect = document.body.getBoundingClientRect().top;
-                    const elementRect = targetElement.getBoundingClientRect().top;
-                    const elementPosition = elementRect - bodyRect;
-                    const offsetPosition = elementPosition - offset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
+                mobileMenu.classList.add('hidden');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
                 }
             });
+        });
+
+        // Active nav highlight on scroll
+        const sections = ['about','publications','experience','education','awards','service','sunsets','contact'];
+        const navLinks  = document.querySelectorAll('aside .nav-link');
+
+        function onScroll() {
+            let current = '';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= 140) current = id;
+            });
+            navLinks.forEach(link => {
+                const active = link.getAttribute('href') === '#' + current;
+                link.classList.toggle('active', active);
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Lightbox
+        const lightbox  = document.getElementById('lightbox');
+        const lbImg     = document.getElementById('lb-img');
+        const lbCounter = document.getElementById('lb-counter');
+        const items     = Array.from(document.querySelectorAll('.gallery-item'));
+        let current     = 0;
+
+        function openLightbox(index) {
+            current = index;
+            lbImg.src = items[current].dataset.src;
+            lbCounter.textContent = `${current + 1} / ${items.length}`;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function navigate(dir) {
+            current = (current + dir + items.length) % items.length;
+            lbImg.src = items[current].dataset.src;
+            lbCounter.textContent = `${current + 1} / ${items.length}`;
+        }
+
+        items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+        document.getElementById('lb-close').addEventListener('click', closeLightbox);
+        document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
+        document.getElementById('lb-next').addEventListener('click', () => navigate(1));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            if (e.key === 'Escape')      closeLightbox();
+            if (e.key === 'ArrowLeft')   navigate(-1);
+            if (e.key === 'ArrowRight')  navigate(1);
         });
     </script>
 </body>
