@@ -109,18 +109,9 @@
         <!-- Profile strip -->
         <div class="bg-gradient-to-b from-teal-50/80 to-green-50/80 backdrop-blur-lg border-b border-teal-100/50 py-6">
             <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <!-- Name + title + social links -->
-                    <div class="text-center md:text-left">
-                        <h1 class="text-4xl md:text-5xl text-slate-800">Sanjali Yadav</h1>
-                        <p class="mt-1 text-xl md:text-2xl text-teal-700 font-semibold">Ph.D. Student &mdash; University of Maryland, College Park</p>
-                    </div>
-                    <!-- Profile image -->
-                    <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
-                        <img src="images/Profil.PNG"
-                             alt="A professional headshot of Sanjali"
-                             class="rounded-full object-cover object-top w-full h-full shadow-2xl ring-4 ring-white/60">
-                    </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl text-slate-800">Sanjali Yadav</h1>
+                    <p class="mt-1 text-xl md:text-2xl text-teal-700 font-semibold">Ph.D. Student &mdash; University of Maryland, College Park</p>
                 </div>
             </div>
         </div>
@@ -147,7 +138,6 @@
             <a href="#education"    class="nav-link text-3xl font-bold text-slate-700">Education</a>
             <a href="#awards"       class="nav-link text-3xl font-bold text-slate-700">Awards</a>
             <a href="#service"      class="nav-link text-3xl font-bold text-slate-700">Service</a>
-            <a href="#contact"      class="nav-link text-3xl font-bold text-slate-700">Contact</a>
             <a href="#sunsets"      class="nav-link text-3xl font-bold text-slate-700">Sunsets</a>
         </div>
     </div>
@@ -211,13 +201,6 @@
                             <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Service</span>
                         </a>
 
-                        <a href="#contact" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
-                            <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
-                                <i data-lucide="mail" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
-                            </div>
-                            <span class="text-center leading-tight" style="font-size:0.6rem; font-weight:600; color:#64748b; letter-spacing:0.03em; text-transform:uppercase;">Contact</span>
-                        </a>
-
                         <a href="#sunsets" class="nav-link group flex flex-col items-center gap-1 w-full px-1 py-2 rounded-xl hover:bg-white/60 transition-all duration-200">
                             <div class="nav-icon-wrap w-8 h-8 flex items-center justify-center">
                                 <i data-lucide="sun" class="w-5 h-5 text-slate-500 group-hover:text-emerald-500 transition-colors duration-200"></i>
@@ -236,30 +219,64 @@
                     <!-- ===== ABOUT ===== -->
                     <section id="about">
                         <div class="glass-panel p-8 md:p-12">
-                            <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
-                                <h2 class="section-heading text-3xl sm:text-4xl text-slate-800">About Me</h2>
-                                <a href="papers/SanjaliYadav_CV_042826.pdf"
-                                   target="_blank"
-                                   class="w-12 h-12 bg-white border-2 border-teal-700 hover:border-teal-800 text-teal-700 hover:text-teal-800 rounded-full flex items-center justify-center font-semibold text-xs transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-teal-300/50 transform"
-                                   title="Download CV">
-                                    CV
-                                </a>
-                            </div>
+                            <div class="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
+                                <!-- Photo + contact -->
+                                <aside class="flex flex-col items-center gap-5 md:sticky md:top-28">
+                                    <figure class="w-44 sm:w-52 bg-white p-2.5 pb-8 shadow-xl rotate-[-1.5deg] ring-1 ring-slate-200/80">
+                                        <img src="images/IMG_7384-web.jpg"
+                                             alt="Sanjali Yadav in London, with Tower Bridge in the background"
+                                             class="w-full h-auto block">
+                                    </figure>
+                                    <div class="text-center space-y-1">
+                                        <p class="text-lg font-semibold text-slate-800">Sanjali Yadav</p>
+                                        <p class="text-sm text-teal-700 font-semibold">Ph.D. Student</p>
+                                        <p class="text-sm text-slate-500">University of Maryland, College Park</p>
+                                    </div>
+                                    <div class="flex flex-col items-stretch gap-2 w-full max-w-[13rem]">
+                                        <a href="https://www.linkedin.com/in/sanjali-yadav/"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           class="inline-flex items-center justify-center gap-2 rounded-lg border border-teal-200/80 bg-white/70 px-3 py-2 text-sm font-semibold text-teal-800 hover:bg-white hover:border-teal-300 transition-colors shadow-sm">
+                                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                                            LinkedIn
+                                        </a>
+                                        <a href="mailto:sanjali7@umd.edu"
+                                           class="inline-flex items-center justify-center gap-2 rounded-lg border border-teal-200/80 bg-white/70 px-3 py-2 text-sm font-semibold text-teal-800 hover:bg-white hover:border-teal-300 transition-colors shadow-sm">
+                                            <i data-lucide="mail" class="w-4 h-4"></i>
+                                            Email
+                                        </a>
+                                        <a href="papers/SanjaliYadav_CV_042826.pdf"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           class="inline-flex items-center justify-center gap-2 rounded-lg border border-teal-200/80 bg-white/70 px-3 py-2 text-sm font-semibold text-teal-800 hover:bg-white hover:border-teal-300 transition-colors shadow-sm">
+                                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                                            CV
+                                        </a>
+                                    </div>
+                                </aside>
 
-                            <div class="space-y-4 text-lg text-slate-600">
-                                <p>I’m a third-year PhD student at the University of Maryland, College Park, where I also earned my Bachelor’s degree in Computer Science. Advised by <a href="https://www.cs.umd.edu/~bahar/" target="_blank" class="text-teal-700 hover:underline font-medium">Dr. Bahar Asgari</a>, my research operates at the intersection of computer architecture and machine learning, focusing on the development of self-adaptive systems. By leveraging machine learning as a foundational architectural mechanism rather than just a target workload, I aim to design systems that autonomously learn and adapt to changing demands throughout their lifecycle. My work moves beyond rigid, pre-defined design heuristics toward autonomous systems that proactively self-optimize for latency, throughput, and energy efficiency, ensuring architectural agility against the high-variance demands of modern computing.</p>
+                                <!-- About copy -->
+                                <div>
+                                    <div class="flex items-center justify-center md:justify-start gap-4 mb-8">
+                                        <h2 class="section-heading text-3xl sm:text-4xl text-slate-800">About Me</h2>
+                                    </div>
 
-                                <p>This research philosophy is embodied in my work on Misam, an adaptive framework that earned me First Place at the ACM Student Research Competition at MICRO 2024. My contributions, including both Misam and the Boötes framework, have been featured at top-tier venues such as MICRO, and reflect my broader goal of treating intelligence as a first-class citizen within the hardware stack. By integrating adaptability directly into the architectural fabric, I continue to push the boundaries of how intelligent computing infrastructure can be effectively deployed in increasingly resource-constrained and dynamic environments.</p>
-                            </div>
+                                    <div class="space-y-4 text-lg text-slate-600">
+                                        <p>I’m a third-year PhD student at the University of Maryland, College Park, where I also earned my Bachelor’s degree in Computer Science. Advised by <a href="https://www.cs.umd.edu/~bahar/" target="_blank" class="text-teal-700 hover:underline font-medium">Dr. Bahar Asgari</a>, my research operates at the intersection of computer architecture and machine learning, focusing on the development of self-adaptive systems. By leveraging machine learning as a foundational architectural mechanism rather than just a target workload, I aim to design systems that autonomously learn and adapt to changing demands throughout their lifecycle. My work moves beyond rigid, pre-defined design heuristics toward autonomous systems that proactively self-optimize for latency, throughput, and energy efficiency, ensuring architectural agility against the high-variance demands of modern computing.</p>
 
-                            <!-- Research interests -->
-                            <div class="mt-8 pt-6 border-t border-teal-100">
-                                <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Research Interests</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="tag-chip">Self-Adaptive Systems</span>
-                                    <span class="tag-chip">Hardware-ML Co-design</span>
-                                    <span class="tag-chip">Autonomous Architectures</span>
-                                    <span class="tag-chip">ML-in-the-Loop Architecture</span>
+                                        <p>This research philosophy is embodied in my work on Misam, an adaptive framework that earned me First Place at the ACM Student Research Competition at MICRO 2024. My contributions, including both Misam and the Boötes framework, have been featured at top-tier venues such as MICRO, and reflect my broader goal of treating intelligence as a first-class citizen within the hardware stack. By integrating adaptability directly into the architectural fabric, I continue to push the boundaries of how intelligent computing infrastructure can be effectively deployed in increasingly resource-constrained and dynamic environments.</p>
+                                    </div>
+
+                                    <!-- Research interests -->
+                                    <div class="mt-8 pt-6 border-t border-teal-100">
+                                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Research Interests</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="tag-chip">Self-Adaptive Systems</span>
+                                            <span class="tag-chip">Hardware-ML Co-design</span>
+                                            <span class="tag-chip">Autonomous Architectures</span>
+                                            <span class="tag-chip">ML-in-the-Loop Architecture</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -577,23 +594,6 @@
                         </div>
                     </section>
 
-                    <!-- ===== CONTACT ===== -->
-                    <section id="contact">
-                        <div class="glass-panel p-8 md:p-12 text-center">
-                            <h2 class="section-heading text-3xl sm:text-4xl text-slate-800 mb-8 inline-block">Get In Touch</h2>
-                            <p class="max-w-2xl mx-auto text-lg mt-6">
-                                I'm always open to discussing research, new ideas, or potential collaborations. Feel free to reach out.
-                            </p>
-                            <div class="mt-8 flex justify-center">
-                                <a href="mailto:sanjali7@umd.edu"
-                                   class="inline-flex items-center gap-2 bg-teal-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-teal-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-teal-400/50 transform">
-                                    <i data-lucide="mail" class="w-4 h-4"></i>
-                                    sanjali7@umd.edu
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-
                     <!-- ===== SUNSETS ===== -->
                     <section id="sunsets">
                         <div class="glass-panel p-8 md:p-12">
@@ -601,37 +601,55 @@
                             <p class="text-slate-500 mb-10">In my free time, I love going on walks and stumbling across little moments in nature worth remembering.</p>
                             <!-- Grid gallery -->
                             <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="sunset-gallery">
-                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_3202.jpg" data-index="0">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/PHOTO-2024-08-26-14-46-46.jpg" data-index="0">
+                                    <img src="images/PHOTO-2024-08-26-14-46-46.jpg" alt="Photo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/PHOTO-2025-12-29-12-38-34.jpg" data-index="1">
+                                    <img src="images/PHOTO-2025-12-29-12-38-34.jpg" alt="Photo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/PHOTO-2026-08-18-15-39-24.jpg" data-index="2">
+                                    <img src="images/PHOTO-2026-08-18-15-39-24.jpg" alt="Photo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                                        <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
+                                    </div>
+                                </div>
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_3202.jpg" data-index="3">
                                     <img src="images/IMG_3202.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
                                     </div>
                                 </div>
-                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_4872.jpg" data-index="1">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_4872.jpg" data-index="4">
                                     <img src="images/IMG_4872.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
                                     </div>
                                 </div>
-                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_6988.jpg" data-index="2">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_6988.jpg" data-index="5">
                                     <img src="images/IMG_6988.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
                                     </div>
                                 </div>
-                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_7896.jpg" data-index="3">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_7896.jpg" data-index="6">
                                     <img src="images/IMG_7896.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
                                     </div>
                                 </div>
-                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_7911.jpg" data-index="4">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_7911.jpg" data-index="7">
                                     <img src="images/IMG_7911.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
                                     </div>
                                 </div>
-                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_8070.jpg" data-index="5">
+                                <div class="gallery-item group relative overflow-hidden rounded-xl cursor-pointer aspect-video bg-slate-100" data-src="images/IMG_8070.jpg" data-index="8">
                                     <img src="images/IMG_8070.jpg" alt="Sunset" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <i data-lucide="expand" class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-8 h-8 drop-shadow-lg"></i>
@@ -695,7 +713,7 @@
         });
 
         // Active nav highlight on scroll
-        const sections = ['about','publications','arxiv','experience','education','awards','service','sunsets','contact'];
+        const sections = ['about','publications','arxiv','experience','education','awards','service','sunsets'];
         const navLinks  = document.querySelectorAll('aside .nav-link');
 
         function onScroll() {
